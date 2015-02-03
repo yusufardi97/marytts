@@ -19,12 +19,42 @@
  */
 package marytts.language.id;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+import java.util.Locale;
+
 import marytts.config.LanguageConfig;
+import marytts.config.MaryConfig;
 import marytts.exceptions.MaryConfigurationException;
 
+import org.junit.Test;
 
-public class IDConfig extends LanguageConfig {
-	public IDConfig() throws MaryConfigurationException {
-		super(IDConfig.class.getResourceAsStream("id.config"));
+/**
+ * @author marc
+ *
+ */
+public class IndonesianConfigTest {
+	private static final Locale INDONESIAN = new Locale("id");
+
+	@Test
+	public void isNotMainConfig() throws MaryConfigurationException {
+		MaryConfig m = new IndonesianConfig();
+		assertFalse(m.isMainConfig());
+	}
+	
+	@Test
+	public void canGet() {
+		MaryConfig m = MaryConfig.getLanguageConfig(INDONESIAN);
+		assertNotNull(m);
+		assertTrue(((LanguageConfig)m).getLocales().contains(INDONESIAN));
+	}
+	
+	
+	@Test
+	public void hasIndonesianLocale() throws MaryConfigurationException {
+		LanguageConfig e = new IndonesianConfig();
+		assertTrue(e.getLocales().contains(INDONESIAN));
 	}
 }

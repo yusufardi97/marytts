@@ -454,7 +454,12 @@ public class MaryProperties
     public static String localePrefix(Locale locale)
     {
         if (locale == null) return null;
-        return locale.toString();
+        if (locale.toString() == "in"){
+            return locale.toLanguageTag();
+        } else {
+            return locale.toString();
+        }
+        //return (locale.toLanguageTag()).toString();
     }
 
 }
