@@ -40,6 +40,7 @@ import java.util.Locale;
 import java.util.Properties;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
+import java.util.logging.LogManager;
 
 import javax.sound.sampled.AudioFileFormat;
 import javax.sound.sampled.AudioFormat;
@@ -484,7 +485,7 @@ public class Mary {
      */
     public static void main(final String[] args) throws Exception {
         long startTime = System.currentTimeMillis();
-
+        
         addJarsToClasspath();
 
         String server = MaryProperties.needProperty("server");

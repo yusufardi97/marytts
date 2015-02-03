@@ -101,7 +101,12 @@ public class FeatureRegistry
         FeatureProcessorManager m = managersByLocale.get(locale);
         if (m != null) return m;
         // Maybe locale is language_COUNTRY, so look up by language also:
-        Locale lang = new Locale(locale.getLanguage());
+        Locale lang;
+        if (locale.getLanguage() == "in"){
+            lang = new Locale(locale.toLanguageTag());
+        } else {
+            lang = new Locale(locale.getLanguage());
+        }
         return managersByLocale.get(lang);
     }
 
@@ -145,7 +150,11 @@ public class FeatureRegistry
         // Locale can have been en_US etc, i.e. language + country; let's try
         // language only as well.
         if (mgr == null) {
-            Locale lang = new Locale(locale.getLanguage());
+            Locale lang; 
+            if (locale.getLanguage() == "in"){
+                lang = new Locale(locale.toLanguageTag());
+            } else {
+                lang = new Locale(locale.getLanguage());}
             mgr = getFeatureProcessorManager(lang);
         }
         if (mgr == null) {
