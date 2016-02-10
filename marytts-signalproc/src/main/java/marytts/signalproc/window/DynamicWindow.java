@@ -23,35 +23,40 @@ import marytts.signalproc.process.InlineDataProcessor;
 
 /**
  * @author Marc Schr&ouml;der
- *
+ * 
  */
-public class DynamicWindow implements InlineDataProcessor
-{
-    protected int windowType;
+public class DynamicWindow implements InlineDataProcessor {
+	protected int windowType;
 
-    /**
-     * An inline data processor applying a window of the requested type to
-     * the data. The window length will always be equal to the data length. 
-     */
-    public DynamicWindow(int windowType)
-    {
-        this.windowType = windowType;
-    }
-    
-    public double [] values(int len)
-    {
-        Window w = Window.get(windowType, len);
-        return w.window;
-    }
+	/**
+	 * An inline data processor applying a window of the requested type to the data. The window length will always be equal to the
+	 * data length.
+	 * 
+	 * @param windowType
+	 *            window type
+	 */
+	public DynamicWindow(int windowType) {
+		this.windowType = windowType;
+	}
 
-    /**
-     * apply a window of the specified type, with length len, to the data. 
-     */
-    public void applyInline(double[] data, int off, int len)
-    {
-        Window w = Window.get(windowType, len);
-        w.applyInline(data, off, len);
-    }
+	public double[] values(int len) {
+		Window w = Window.get(windowType, len);
+		return w.window;
+	}
+
+	/**
+	 * apply a window of the specified type, with length len, to the data.
+	 * 
+	 * @param data
+	 *            data
+	 * @param off
+	 *            off
+	 * @param len
+	 *            len
+	 */
+	public void applyInline(double[] data, int off, int len) {
+		Window w = Window.get(windowType, len);
+		w.applyInline(data, off, len);
+	}
 
 }
-

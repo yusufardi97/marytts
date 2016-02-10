@@ -42,96 +42,88 @@ import org.apache.log4j.Logger;
 
 /**
  * @author marc
- *
+ * 
  */
-public class AudioStreamNHttpEntity
-extends AbstractHttpEntity implements ProducingNHttpEntity, Runnable
-{
-    private Request maryRequest;
-    private AudioInputStream audio;
-    private AudioFileFormat.Type audioType;
-    private Logger logger;
-    private Object mutex;
-    private SharedOutputBuffer out;
+public class AudioStreamNHttpEntity extends AbstractHttpEntity implements ProducingNHttpEntity, Runnable {
+	private Request maryRequest;
+	private AudioInputStream audio;
+	private AudioFileFormat.Type audioType;
+	private Logger logger;
+	private Object mutex;
+	private SharedOutputBuffer out;
 
-    public AudioStreamNHttpEntity(Request maryRequest)
-    {
-        this.maryRequest = maryRequest;
-        this.audio = maryRequest.getAudio();
-        this.audioType = maryRequest.getAudioFileFormat().getType();
-        setContentType(MaryHttpServerUtils.getMimeType(audioType));
-        this.mutex = new Object();
-    }
+	public AudioStreamNHttpEntity(Request maryRequest) {
+		this.maryRequest = maryRequest;
+		this.audio = maryRequest.getAudio();
+		this.audioType = maryRequest.getAudioFileFormat().getType();
+		setContentType(MaryHttpServerUtils.getMimeType(audioType));
+		this.mutex = new Object();
+	}
 
-    public void finish()
-    {
-        assert logger != null : "we should never be able to write if run() is not called";
-        logger.info("Completed sending streaming audio");
-        maryRequest = null;
-        audio = null;
-        audioType = null;
-        logger = null;
-    }
+	public void finish() {
+		assert logger != null : "we should never be able to write if run() is not called";
+		logger.info("Completed sending streaming audio");
+		maryRequest = null;
+		audio = null;
+		audioType = null;
+		logger = null;
+	}
 
-    public void produceContent(ContentEncoder encoder, IOControl ioctrl)
-    throws IOException
-    {
-        if (out == null) {
-            synchronized (mutex) {
-                out = new SharedOutputBuffer(8192, ioctrl, new HeapByteBufferAllocator());
-                mutex.notify();
-            }
-        }
-        while (!encoder.isCompleted())
-            out.produceContent(encoder);
-    }
+	public void produceContent(ContentEncoder encoder, IOControl ioctrl) throws IOException {
+		if (out == null) {
+			synchronized (mutex) {
+				out = new SharedOutputBuffer(8192, ioctrl, new HeapByteBufferAllocator());
+				mutex.notify();
+			}
+		}
+		while (!encoder.isCompleted())
+			out.produceContent(encoder);
+	}
 
-    public long getContentLength() {
-        return -1;
-    }
+	public long getContentLength() {
+		return -1;
+	}
 
-    public boolean isRepeatable() {
-        return false;
-    }
+	public boolean isRepeatable() {
+		return false;
+	}
 
-    public boolean isStreaming() {
-        return true;
-    }
+	public boolean isStreaming() {
+		return true;
+	}
 
-    public InputStream getContent() {
-        return null;
-    }
+	public InputStream getContent() {
+		return null;
+	}
 
-    public void writeTo(final OutputStream outstream) throws IOException {
-        throw new RuntimeException("Should not be called");
-    }
+	public void writeTo(final OutputStream outstream) throws IOException {
+		throw new RuntimeException("Should not be called");
+	}
 
-    
-    /**
-     * Wait for the SharedOutputBuffer to become available, write audio data to it.
-     */
-    public void run()
-    {
-        this.logger = MaryUtils.getLogger(Thread.currentThread().getName());
-        // We must wait until produceContent() is called:
-        while (out == null) {
-            synchronized(mutex) {
-                try {
-                    mutex.wait();
-                } catch (InterruptedException e) {}
-            }
-        }
-        assert out != null;
-        ContentOutputStream outStream = new ContentOutputStream(out);
-        try {
-            AudioSystem.write(audio, audioType, outStream);
-            outStream.flush();
-            outStream.close();                
-            logger.info("Finished writing output");
-        } catch (IOException ioe) {
-            logger.info("Cannot write output, client seems to have disconnected. ", ioe);
-            maryRequest.abort();
-        }
-    }
-
+	/**
+	 * Wait for the SharedOutputBuffer to become available, write audio data to it.
+	 */
+	public void run() {
+		this.logger = MaryUtils.getLogger(Thread.currentThread().getName());
+		// We must wait until produceContent() is called:
+		while (out == null) {
+			synchronized (mutex) {
+				try {
+					mutex.wait();
+				} catch (InterruptedException e) {
+				}
+			}
+		}
+		assert out != null;
+		ContentOutputStream outStream = new ContentOutputStream(out);
+		try {
+			AudioSystem.write(audio, audioType, outStream);
+			outStream.flush();
+			outStream.close();
+			logger.info("Finished writing output");
+		} catch (IOException ioe) {
+			logger.info("Cannot write output, client seems to have disconnected. ", ioe);
+			maryRequest.abort();
+		}
+	}
 }

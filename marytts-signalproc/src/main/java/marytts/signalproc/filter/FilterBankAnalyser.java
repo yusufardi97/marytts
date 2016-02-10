@@ -20,10 +20,9 @@
 package marytts.signalproc.filter;
 
 /**
- * @author Oytun T&uumlrk
- *
+ * @author Oytun T&uuml;rk
+ * 
  */
 public interface FilterBankAnalyser {
-    public Subband[] apply(double[] x);
+	public Subband[] apply(double[] x);
 }
-

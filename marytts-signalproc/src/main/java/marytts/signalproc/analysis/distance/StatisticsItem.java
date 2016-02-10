@@ -22,22 +22,19 @@ package marytts.signalproc.analysis.distance;
 import marytts.util.math.MathUtils;
 
 /**
- * @author Oytun T&uumlrk
+ * @author Oytun T&uuml;rk
  */
 public class StatisticsItem {
-    public double mean;
-    public double std;
+	public double mean;
+	public double std;
 
-    public StatisticsItem(double meanIn, double stdIn)
-    {
-        mean = meanIn;
-        std = stdIn;
-    }
-    
-    public StatisticsItem(double[] x)
-    {
-        mean = MathUtils.mean(x);
-        std = MathUtils.standardDeviation(x, mean);
-    }
+	public StatisticsItem(double meanIn, double stdIn) {
+		mean = meanIn;
+		std = stdIn;
+	}
+
+	public StatisticsItem(double[] x) {
+		mean = MathUtils.mean(x);
+		std = MathUtils.standardDeviation(x, mean);
+	}
 }
-

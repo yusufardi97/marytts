@@ -24,38 +24,54 @@ import java.util.Locale;
 import marytts.datatypes.MaryData;
 import marytts.datatypes.MaryDataType;
 
-
 /**
  * A dummy module doing nothing.
  *
  * @author Marc Schr&ouml;der
  */
 
-public class DummyModule implements MaryModule
-{
-    public String name() { return "Dummy"; }
+public class DummyModule implements MaryModule {
+	public String name() {
+		return "Dummy";
+	}
 
-    public MaryDataType inputType() {
-        return MaryDataType.MBROLA;
-    }
+	@Deprecated
+	public MaryDataType inputType() {
+		return getInputType();
+	}
 
-    public MaryDataType outputType() {
-        return MaryDataType.AUDIO;
-    }
-    
-    public Locale getLocale() {
-        return null;
-    }
+	public MaryDataType getInputType() {
+		return MaryDataType.TEXT;
+	}
 
-    public void startup() throws Exception {}
-    
-    public void powerOnSelfTest() throws Error {}
-        
-    public void shutdown() {}
-    
-    public int getState() { return MODULE_OFFLINE; }
+	@Deprecated
+	public MaryDataType outputType() {
+		return getOutputType();
+	}
 
-    public MaryData process(MaryData d) throws Exception { return d; }
+	public MaryDataType getOutputType() {
+		return MaryDataType.AUDIO;
+	}
+
+	public Locale getLocale() {
+		return null;
+	}
+
+	public void startup() throws Exception {
+	}
+
+	public void powerOnSelfTest() throws Error {
+	}
+
+	public void shutdown() {
+	}
+
+	public int getState() {
+		return MODULE_OFFLINE;
+	}
+
+	public MaryData process(MaryData d) throws Exception {
+		return d;
+	}
 
 }
-

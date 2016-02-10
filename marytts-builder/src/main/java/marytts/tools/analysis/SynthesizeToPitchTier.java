@@ -28,10 +28,11 @@ import marytts.util.data.text.PraatPitchTier;
 import marytts.util.dom.DomUtils;
 
 /**
- * Synthesize a given sentence with a given voice using a given server, to audio and to a PitchTier file reflecting
- * the predicted (ACOUSTPARAMS) intonation curve.
+ * Synthesize a given sentence with a given voice using a given server, to audio and to a PitchTier file reflecting the predicted
+ * (ACOUSTPARAMS) intonation curve.
+ * 
  * @author marc
- *
+ * 
  */
 public class SynthesizeToPitchTier {
 
@@ -39,19 +40,20 @@ public class SynthesizeToPitchTier {
 	private String inputFormat;
 	private String locale;
 	private String voice;
-	
+
 	public SynthesizeToPitchTier(MaryClient mary, String inputFormat, String locale, String voice) {
 		this.mary = mary;
 		this.inputFormat = inputFormat;
 		this.locale = locale;
 		this.voice = voice;
 	}
-	
-	private AllophoneSet getAllophoneSet() throws MaryConfigurationException  {
+
+	private AllophoneSet getAllophoneSet() throws MaryConfigurationException {
 		// TODO: make more generic
-		return AllophoneSet.getAllophoneSet(getClass().getResourceAsStream("/marytts/language/en_GB/lexicon/allophones.en_GB.xml"), "dummy");
+		return AllophoneSet.getAllophoneSet(getClass()
+				.getResourceAsStream("/marytts/language/en_GB/lexicon/allophones.en_GB.xml"), "dummy");
 	}
-	
+
 	public void synthAudioToFile(String input, String filename) throws IOException {
 		OutputStream audioOutStream = new FileOutputStream(filename);
 		try {
@@ -61,7 +63,7 @@ public class SynthesizeToPitchTier {
 		}
 
 	}
-	
+
 	public void synthPredictedPitchTier(String input, Labels reference, String filename) throws IOException {
 		try {
 			synthPitchTier(input, filename, "ACOUSTPARAMS", reference);
@@ -78,8 +80,8 @@ public class SynthesizeToPitchTier {
 		}
 	}
 
-	private void synthPitchTier(String input, String filename, String outputFormat, Labels reference)
-	throws IOException, ParserConfigurationException, SAXException, MaryConfigurationException  {
+	private void synthPitchTier(String input, String filename, String outputFormat, Labels reference) throws IOException,
+			ParserConfigurationException, SAXException, MaryConfigurationException {
 		ByteArrayOutputStream acoustparamsData = new ByteArrayOutputStream();
 		mary.process(input, "TEXT", outputFormat, locale, null, voice, acoustparamsData);
 		Document acoustparams = DomUtils.parseDocument(new ByteArrayInputStream(acoustparamsData.toByteArray()));
@@ -90,15 +92,18 @@ public class SynthesizeToPitchTier {
 		PraatPitchTier pitchTier = new PraatPitchTier(acoustparams);
 		if (reference != null) {
 			pitchTier.setXmin(0);
-			pitchTier.setXmax(reference.items[reference.items.length-1].time);
+			pitchTier.setXmax(reference.items[reference.items.length - 1].time);
 		}
 		FileWriter pitchTierWriter = new FileWriter(filename);
 		pitchTier.writeTo(pitchTierWriter);
 		pitchTierWriter.close();
 	}
-	
+
 	/**
 	 * @param args
+	 *            args
+	 * @throws Exception
+	 *             Exception
 	 */
 	public static void main(String[] args) throws Exception {
 		MaryClient mary = MaryClient.getMaryClient();
@@ -115,22 +120,21 @@ public class SynthesizeToPitchTier {
 			String basename = StringUtils.removeEnd(textfile, ".txt");
 			Labels reference = null;
 			if (stretchToReference) {
-				reference = new Labels(basename+".lab");
+				reference = new Labels(basename + ".lab");
 			}
-			
-			String filename = basename+"."+voice;
+
+			String filename = basename + "." + voice;
 			if (synthPredicted) {
-				synth.synthPredictedPitchTier(text, reference, filename+".predicted.PitchTier");
+				synth.synthPredictedPitchTier(text, reference, filename + ".predicted.PitchTier");
 			}
 			if (synthRealised) {
-				synth.synthRealisedPitchTier(text, filename+".realised.PitchTier");
+				synth.synthRealisedPitchTier(text, filename + ".realised.PitchTier");
 			}
 			if (synthAudio) {
-				synth.synthAudioToFile(text, filename+".wav");
+				synth.synthAudioToFile(text, filename + ".wav");
 			}
 			System.out.println(basename);
 		}
 
 	}
-
 }

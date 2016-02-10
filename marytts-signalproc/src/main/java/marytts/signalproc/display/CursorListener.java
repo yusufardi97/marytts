@@ -21,12 +21,14 @@ package marytts.signalproc.display;
 
 /**
  * @author Marc Schr&ouml;der
- *
+ * 
  */
 public interface CursorListener {
-    /**
-     * Called when this listener is to be alerted of a change in cursor position.
-     */
-    public void updateCursorPosition(CursorEvent e);
+	/**
+	 * Called when this listener is to be alerted of a change in cursor position.
+	 * 
+	 * @param e
+	 *            e
+	 */
+	public void updateCursorPosition(CursorEvent e);
 }
-

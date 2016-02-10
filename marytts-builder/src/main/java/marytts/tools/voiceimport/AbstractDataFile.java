@@ -34,97 +34,97 @@ import marytts.util.data.Datagram;
  */
 abstract class AbstractDataFile {
 
-    protected int sampleRate;
+	protected int sampleRate;
 
-    protected float frameSkip;
+	protected float frameSkip;
 
-    protected int numFrames;
+	protected int numFrames;
 
-    protected int frameDuration;
+	protected int frameDuration;
 
-    protected Datagram[] datagrams;
+	protected Datagram[] datagrams;
 
-    /**
-     * main constructor
-     * 
-     * @param file
-     *            to load
-     */
-    public AbstractDataFile(File file) {
-        load(file);
-    }
+	/**
+	 * main constructor
+	 * 
+	 * @param file
+	 *            to load
+	 */
+	public AbstractDataFile(File file) {
+		load(file);
+	}
 
-    /**
-     * load the File; only extension classes know how to do this
-     * 
-     * @param file
-     *            to load
-     */
-    protected abstract void load(File file);
+	/**
+	 * load the File; only extension classes know how to do this
+	 * 
+	 * @param file
+	 *            to load
+	 */
+	protected abstract void load(File file);
 
-    /**
-     * get the sample rate (in Hz)
-     * 
-     * @return the sampleRate
-     */
-    public int getSampleRate() {
-        return sampleRate;
-    }
+	/**
+	 * get the sample rate (in Hz)
+	 * 
+	 * @return the sampleRate
+	 */
+	public int getSampleRate() {
+		return sampleRate;
+	}
 
-    /**
-     * get the frame skip (in seconds)
-     * 
-     * @return the frameSkip
-     */
-    public float getFrameSkip() {
-        return frameSkip;
-    }
+	/**
+	 * get the frame skip (in seconds)
+	 * 
+	 * @return the frameSkip
+	 */
+	public float getFrameSkip() {
+		return frameSkip;
+	}
 
-    /**
-     * get datagrams; no special requirements for their total duration
-     * 
-     * @return datagrams
-     */
-    public Datagram[] getDatagrams() {
-        return datagrams;
-    }
+	/**
+	 * get datagrams; no special requirements for their total duration
+	 * 
+	 * @return datagrams
+	 */
+	public Datagram[] getDatagrams() {
+		return datagrams;
+	}
 
-    /**
-     * Get datagrams; if the total duration of all Datagrams is <i>longer</i> than <b>forcedDuration</b>, excess Datagrams will be
-     * silently dropped, and the duration of the last included one is shortened to match forcedDuration. If the total duration of
-     * all Datagrams is <i>shorter</i> than <b>forcedDuration</b>, a final "filler" Datagram is appended which contains no data,
-     * but whose duration increases the total duration to satisfy <b>forcedDuration</b>.
-     * 
-     * @param forcedDuration
-     *            of all Datagrams (in samples)
-     * @return datagrams
-     */
-    public Datagram[] getDatagrams(int forcedDuration) {
-        // initialize datagrams as a List:
-        ArrayList<Datagram> datagramList = new ArrayList<Datagram>(numFrames);
-        int durationMismatch = forcedDuration;
+	/**
+	 * Get datagrams; if the total duration of all Datagrams is <i>longer</i> than <b>forcedDuration</b>, excess Datagrams will be
+	 * silently dropped, and the duration of the last included one is shortened to match forcedDuration. If the total duration of
+	 * all Datagrams is <i>shorter</i> than <b>forcedDuration</b>, a final "filler" Datagram is appended which contains no data,
+	 * but whose duration increases the total duration to satisfy <b>forcedDuration</b>.
+	 * 
+	 * @param forcedDuration
+	 *            of all Datagrams (in samples)
+	 * @return datagrams
+	 */
+	public Datagram[] getDatagrams(int forcedDuration) {
+		// initialize datagrams as a List:
+		ArrayList<Datagram> datagramList = new ArrayList<Datagram>(numFrames);
+		int durationMismatch = forcedDuration;
 
-        // iterate over all data frames:
-        for (Datagram datagram : datagrams) {
-            durationMismatch -= datagram.getDuration();
-            if (durationMismatch < 0) {
-                // if forcedDuration is exceeded, adjust the final frame's duration and break out of loop:
-                datagram.setDuration(datagram.getDuration() + durationMismatch);
-                datagramList.add(datagram);
-                break;
-            }
-            datagramList.add(datagram);
-        }
+		// iterate over all data frames:
+		for (Datagram datagram : datagrams) {
+			durationMismatch -= datagram.getDuration();
+			if (durationMismatch < 0) {
+				// if forcedDuration is exceeded, adjust the final frame's duration and break out of loop:
+				datagram.setDuration(datagram.getDuration() + durationMismatch);
+				datagramList.add(datagram);
+				break;
+			}
+			datagramList.add(datagram);
+		}
 
-        // if total duration of all Datagrams is less than forcedDuration, pad with empty filler:
-        if (durationMismatch > 0) {
-            byte[] nothing = new byte[] {};
-            Datagram filler = new Datagram(durationMismatch, nothing);
-            datagramList.add(filler);
-        }
+		// if total duration of all Datagrams is less than forcedDuration, pad with empty filler:
+		if (durationMismatch > 0) {
+			byte[] nothing = new byte[] {};
+			Datagram filler = new Datagram(durationMismatch, nothing);
+			datagramList.add(filler);
+		}
 
-        // return datagrams as array:
-        Datagram[] datagramArray = datagramList.toArray(new Datagram[datagramList.size()]);
-        return datagramArray;
-    }
+		// return datagrams as array:
+		Datagram[] datagramArray = datagramList.toArray(new Datagram[datagramList.size()]);
+		return datagramArray;
+	}
 }

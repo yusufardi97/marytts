@@ -22,27 +22,23 @@ package marytts.signalproc.analysis.distance;
 /**
  * Implements Cosh based spectral distortion measure
  * 
- * @author Oytun T&uumlrk
+ * @author Oytun T&uuml;rk
  */
 public class CoshDistanceComputer extends BaselineLPSpectralEnvelopeDistortionComputer {
-    public CoshDistanceComputer()
-    {
-        super();
-    }
-    
-    public double frameDistance(double[] frm1, double[] frm2, int fftSize, int lpOrder)
-    {
-        super.frameDistance(frm1, frm2, fftSize, lpOrder);
-        
-        double dist = SpectralDistanceMeasures.coshDist(frm1, frm2, fftSize, lpOrder);
-        
-        return dist;
-    }
-    
-    //Put source and target wav and lab files into two folders and call this function
-    public static void main(String[] args)
-    {
-        //mainBase("coshLPSpectralEnvelope.txt");
-    }
-}
+	public CoshDistanceComputer() {
+		super();
+	}
 
+	public double frameDistance(double[] frm1, double[] frm2, int fftSize, int lpOrder) {
+		super.frameDistance(frm1, frm2, fftSize, lpOrder);
+
+		double dist = SpectralDistanceMeasures.coshDist(frm1, frm2, fftSize, lpOrder);
+
+		return dist;
+	}
+
+	// Put source and target wav and lab files into two folders and call this function
+	public static void main(String[] args) {
+		// mainBase("coshLPSpectralEnvelope.txt");
+	}
+}

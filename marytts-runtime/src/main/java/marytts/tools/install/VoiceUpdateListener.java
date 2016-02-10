@@ -30,14 +30,18 @@
 package marytts.tools.install;
 
 /**
- *
+ * 
  * @author marc
  */
-public interface VoiceUpdateListener
-{
-    /**
-     * Take note of the fact that the current language has changed and the list of voices needs updating.
-     */
-    public void updateVoices(LanguageComponentDescription currentLanguage, boolean forceUpdate);
-    
+public interface VoiceUpdateListener {
+	/**
+	 * Take note of the fact that the current language has changed and the list of voices needs updating.
+	 * 
+	 * @param currentLanguage
+	 *            currentLanguage
+	 * @param forceUpdate
+	 *            forceUpdate
+	 */
+	public void updateVoices(LanguageComponentDescription currentLanguage, boolean forceUpdate);
+
 }

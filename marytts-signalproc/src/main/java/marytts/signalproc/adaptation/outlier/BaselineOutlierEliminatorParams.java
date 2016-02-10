@@ -25,35 +25,31 @@ import marytts.signalproc.adaptation.BaselineParams;
  * 
  * Baseline class for outlier elimination parameters
  * 
- * @author Oytun T&uumlrk
+ * @author Oytun T&uuml;rk
  */
-public class BaselineOutlierEliminatorParams extends BaselineParams 
-{
-    public boolean isActive; //Is outlier elimination process being used? If false, the below parameters have no effect.
-    
-    public boolean isCheckLsfOutliers; //Use LSF distance distributions for finding outliers?
-    public boolean isCheckF0Outliers; //Use F0 difference distributions for finding outliers?
-    public boolean isCheckDurationOutliers; //Use duration difference distributions for finding outliers?
-    public boolean isCheckEnergyOutliers; //Use energy difference distributions for finding outliers?
-    
-    public BaselineOutlierEliminatorParams()
-    {
-        isCheckLsfOutliers = true;
-        isCheckF0Outliers = true;
-        isCheckDurationOutliers = true;
-        isCheckEnergyOutliers = true;
-        
-        isActive = true;
-    }
-    
-    public BaselineOutlierEliminatorParams(BaselineOutlierEliminatorParams existing)
-    {
-        isCheckLsfOutliers = existing.isCheckLsfOutliers;
-        isCheckF0Outliers = existing.isCheckF0Outliers;
-        isCheckDurationOutliers = existing.isCheckDurationOutliers;
-        isCheckEnergyOutliers = existing.isCheckEnergyOutliers;
-        
-        isActive = existing.isActive;
-    }
-}
+public class BaselineOutlierEliminatorParams extends BaselineParams {
+	public boolean isActive; // Is outlier elimination process being used? If false, the below parameters have no effect.
 
+	public boolean isCheckLsfOutliers; // Use LSF distance distributions for finding outliers?
+	public boolean isCheckF0Outliers; // Use F0 difference distributions for finding outliers?
+	public boolean isCheckDurationOutliers; // Use duration difference distributions for finding outliers?
+	public boolean isCheckEnergyOutliers; // Use energy difference distributions for finding outliers?
+
+	public BaselineOutlierEliminatorParams() {
+		isCheckLsfOutliers = true;
+		isCheckF0Outliers = true;
+		isCheckDurationOutliers = true;
+		isCheckEnergyOutliers = true;
+
+		isActive = true;
+	}
+
+	public BaselineOutlierEliminatorParams(BaselineOutlierEliminatorParams existing) {
+		isCheckLsfOutliers = existing.isCheckLsfOutliers;
+		isCheckF0Outliers = existing.isCheckF0Outliers;
+		isCheckDurationOutliers = existing.isCheckDurationOutliers;
+		isCheckEnergyOutliers = existing.isCheckEnergyOutliers;
+
+		isActive = existing.isActive;
+	}
+}

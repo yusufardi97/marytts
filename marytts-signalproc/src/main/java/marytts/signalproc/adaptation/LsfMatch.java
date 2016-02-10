@@ -32,24 +32,21 @@ package marytts.signalproc.adaptation;
 import marytts.util.math.ArrayUtils;
 
 /**
- * @author oytun.turk
- *
+ * @author Oytun T&uuml;rk
+ * 
  */
 public class LsfMatch extends VocalTractMatch {
-    public double[] lsfs;
-    
-    public LsfMatch()
-    {
-        lsfs = null;
-    }
-    
-    public LsfMatch(double[] lsfsIn)
-    {
-        setLsfs(lsfsIn);
-    }
-    
-    public void setLsfs(double[] lsfsIn)
-    {
-        lsfs = ArrayUtils.copy(lsfsIn);
-    }
+	public double[] lsfs;
+
+	public LsfMatch() {
+		lsfs = null;
+	}
+
+	public LsfMatch(double[] lsfsIn) {
+		setLsfs(lsfsIn);
+	}
+
+	public void setLsfs(double[] lsfsIn) {
+		lsfs = ArrayUtils.copy(lsfsIn);
+	}
 }

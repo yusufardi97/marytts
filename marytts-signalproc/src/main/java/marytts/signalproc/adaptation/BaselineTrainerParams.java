@@ -20,10 +20,9 @@
 package marytts.signalproc.adaptation;
 
 /**
- * @author Oytun T&uumlrk
- *
+ * @author Oytun T&uuml;rk
+ * 
  */
 public class BaselineTrainerParams extends BaselineParams {
 
 }
-

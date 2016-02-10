@@ -23,6 +23,11 @@
 		</dependency>
 
 		<dependency>
+			<groupId>com.ibm.icu</groupId>
+			<artifactId>icu4j</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
 		</dependency>
@@ -48,16 +53,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>de.dfki.mary</groupId>
-			<artifactId>freetts</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>de.dfki.mary</groupId>
-			<artifactId>freetts-de</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>de.dfki.mary</groupId>
-			<artifactId>freetts-en_us</artifactId>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
 		</dependency>
 
 		<dependency>

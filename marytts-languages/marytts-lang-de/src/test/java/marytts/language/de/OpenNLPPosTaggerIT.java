@@ -33,30 +33,30 @@ import org.junit.Test;
 public class OpenNLPPosTaggerIT extends MaryModuleTestCase {
 
 	/**
-	 * @param needMaryStarted
 	 * @throws Exception
+	 *             Exception
 	 */
 	public OpenNLPPosTaggerIT() throws Exception {
 		super(true); // start MARY
-		
+
 	}
-	
+
 	@Override
 	protected String inputEnding() {
 		return "words";
 	}
-	
+
 	@Override
 	protected String outputEnding() {
 		return "partsofspeech";
 	}
-	
+
 	@Test
 	public void posExample1() throws Exception {
 		// setup SUT:
-        module = new OpenNLPPosTagger("de", "de.pos");
-        module.startup();
-        // exercise:
+		module = new OpenNLPPosTagger("de", "de.pos");
+		module.startup();
+		// exercise:
 		processAndCompare("example1-de", Locale.GERMAN);
 		// teardown:
 		module.shutdown();

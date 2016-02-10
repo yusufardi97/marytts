@@ -31,33 +31,34 @@ import marytts.util.MaryUtils;
  */
 public class VoiceConfig extends MaryConfig {
 
-	
 	public VoiceConfig(InputStream propertyStream) throws MaryConfigurationException {
 		super(propertyStream);
 		if (getName() == null) {
 			throw new MaryConfigurationException("Voice does not have a name");
 		}
 		if (getLocale() == null) {
-			throw new MaryConfigurationException("Voice '"+getName()+"' does not have a locale");
+			throw new MaryConfigurationException("Voice '" + getName() + "' does not have a locale");
 		}
 	}
-	
+
 	@Override
 	public boolean isVoiceConfig() {
 		return true;
 	}
-	
+
 	/**
 	 * The voice's name. Guaranteed not to be null.
-	 * @return
+	 * 
+	 * @return getProperties().getProperty("name")
 	 */
 	public String getName() {
 		return getProperties().getProperty("name");
 	}
-	
+
 	/**
 	 * The voice's locale. Guaranteed not to be null.
-	 * @return
+	 * 
+	 * @return null if localeString is null, return MaryUtils.string2locale(localeString) otherwise
 	 */
 	public Locale getLocale() {
 		String localeString = getProperties().getProperty("locale");

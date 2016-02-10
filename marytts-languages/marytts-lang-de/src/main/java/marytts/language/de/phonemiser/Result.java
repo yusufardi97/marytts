@@ -21,26 +21,26 @@ package marytts.language.de.phonemiser;
 
 /**
  * @author steigner
- *
- * To change the template for this generated type comment go to
- * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
+ * 
+ *         To change the template for this generated type comment go to Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code
+ *         and Comments
  */
 public class Result {
-	private boolean usedOtherLanguageToPhonemise = false; 
+	private boolean usedOtherLanguageToPhonemise = false;
 	private String transcription = null;
-	
-	public Result () {
+
+	public Result() {
 	}
-	
+
 	/**
-	 * @return
+	 * @return transcription
 	 */
 	public String getTranscription() {
 		return transcription;
 	}
 
 	/**
-	 * @return
+	 * @return usedOtherLanguageToPhonemise
 	 */
 	public boolean isUsedOtherLanguageToPhonemise() {
 		return usedOtherLanguageToPhonemise;
@@ -48,6 +48,7 @@ public class Result {
 
 	/**
 	 * @param string
+	 *            string
 	 */
 	public void setTranscription(String string) {
 		transcription = string;
@@ -55,6 +56,7 @@ public class Result {
 
 	/**
 	 * @param b
+	 *            b
 	 */
 	public void setUsedOtherLanguageToPhonemise(boolean b) {
 		usedOtherLanguageToPhonemise = b;

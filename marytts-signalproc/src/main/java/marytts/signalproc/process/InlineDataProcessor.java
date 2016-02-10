@@ -21,16 +21,18 @@ package marytts.signalproc.process;
 
 /**
  * @author Marc Schr&ouml;der
- *
+ * 
  */
-public interface InlineDataProcessor
-{
-    /**
-     * Perform some in-place processing on the given data.
-     * @param data
-     * @param off
-     * @param len
-     */
-    public void applyInline(double[] data, int off, int len);
+public interface InlineDataProcessor {
+	/**
+	 * Perform some in-place processing on the given data.
+	 * 
+	 * @param data
+	 *            data
+	 * @param off
+	 *            off
+	 * @param len
+	 *            len
+	 */
+	public void applyInline(double[] data, int off, int len);
 }
-
