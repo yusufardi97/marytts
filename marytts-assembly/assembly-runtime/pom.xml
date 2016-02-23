@@ -27,11 +27,11 @@
 			<type>jar</type>
 			<classifier>jar-with-dependencies</classifier>
 		</dependency>
-		<dependency>
+		<!--<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>marytts-lang-id</artifactId>
 			<version>${project.version}</version>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>marytts-lang-de</artifactId>
