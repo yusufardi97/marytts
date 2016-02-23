@@ -17,7 +17,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-package marytts.language.id;
+package marytts.language.in;
 
 import marytts.config.LanguageConfig;
 import marytts.exceptions.MaryConfigurationException;
@@ -25,6 +25,6 @@ import marytts.exceptions.MaryConfigurationException;
 
 public class IndonesianConfig extends LanguageConfig {
 	public IndonesianConfig() throws MaryConfigurationException {
-		super(IndonesianConfig.class.getResourceAsStream("id.config"));
+		super(IndonesianConfig.class.getResourceAsStream("in.config"));
 	}
 }

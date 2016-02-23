@@ -36,7 +36,7 @@ import org.junit.Test;
  *
  */
 public class IndonesianConfigTest {
-	private static final Locale TURKISH = new Locale("in");
+	private static final Locale Indonesian = new Locale("in");
 
 	@Test
 	public void isNotMainConfig() throws MaryConfigurationException {

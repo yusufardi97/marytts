@@ -8,7 +8,7 @@
 		<relativePath>../../pom.xml</relativePath>
 	</parent>
 
-	<artifactId>marytts-lang-id</artifactId>
+	<artifactId>marytts-lang-in</artifactId>
 	<name>${project.artifactId}</name>
 
 	<dependencies>
