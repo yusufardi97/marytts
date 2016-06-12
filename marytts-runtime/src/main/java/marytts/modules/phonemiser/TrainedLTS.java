@@ -26,6 +26,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Properties;
 
+import org.hsqldb.error.Error;
+
 import marytts.cart.CART;
 import marytts.cart.LeafNode.StringAndFloatLeafNode;
 import marytts.cart.io.MaryCARTReader;
@@ -156,6 +158,7 @@ public class TrainedLTS {
 			StringAndFloatLeafNode leaf = (StringAndFloatLeafNode) tree.interpretToNode(fv, 0);
 			String prediction = leaf.mostProbableString(featureDefinition, indexPredictedFeature);
 			returnStr += prediction.substring(1, prediction.length() - 1);
+
 		}
 
 		return returnStr;
