@@ -8,3 +8,4 @@
 *.md text eol=crlf
 *.properties text eol=crlf
 *.txt text eol=crlf
+*.mry filter=lfs diff=lfs merge=lfs -binary
