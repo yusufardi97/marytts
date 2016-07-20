@@ -239,7 +239,6 @@
         </package>
         <depends language="tr" version="5.1"/>
     </voice>
-    <!--
     <voice locale="en_US" name="voice-in_voice" gender="female" type="unit selection" version="5.2-SNAPSHOT">
     	<description>A female English general voice</description>
     	<license href="http://mary.dfki.de/download/by-nd-3.0.html"/>
@@ -248,5 +247,4 @@
     	</package>
     	<depends language="en-US" version="5.2-SNAPSHOT"/>
     </voice>
-    -->
 </marytts-install>
