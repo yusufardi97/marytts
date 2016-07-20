@@ -9,6 +9,9 @@ target/
 .project
 .classpath
 
+# ideaIU
+.idea/
+
 # misc. testing
 tmp/
 log/
