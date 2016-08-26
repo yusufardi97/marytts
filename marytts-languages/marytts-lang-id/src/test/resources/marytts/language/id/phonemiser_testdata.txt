@@ -1,0 +1,4 @@
+bintang	b i n t a N	content lexicon
+punya	p u J a		content lexicon
+semampai	s E m a m p aI	content lexicon
+marytts	m a - r i - t E - t E - E s	content userdict

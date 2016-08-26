@@ -1,4 +1,4 @@
-package marytts.language.fr;
+package marytts.language.id;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,7 +22,7 @@ import org.w3c.dom.traversal.TreeWalker;
 import com.ibm.icu.text.RuleBasedNumberFormat;
 
 /**
- * @author Tristan Hamilton
+ * @author Tristan Hamilton (edited by Yusuf Ardi Nugroho for Indonesian Language)
  * 
  *         Processes cardinal and ordinal numbers.
  */

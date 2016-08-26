@@ -1,0 +1,90 @@
+<allophones name="sampa" xml:lang="in" features="vlng vheight vfront vrnd ctype cplace cvox">
+	
+	<!-- 
+	vowels
+	vlng	= panjang suara yang dihasilkan, s=pendek, l=panjang
+	vheight	= ketinggian mulut saat suara diucapkan, 1=pendek (close), 2=tengah (mid), 3=tinggi (open)
+	vfront	= posisi dalam mulut tempat suara diucapkan, 1=depan (front), 2=tengah (central), 3=belakang (back)
+	vrnd	= roundness dari pengucapan, (+)=rounded, (-)=unrounded
+	
+	consonant
+	ctype	= nasal(n), plosive(s), fricative (f), approximant(a), Lateral approximant (l), trill (r), flap ()
+	cplace	= bilabial(l), labiodental (b), alveolar (a), palato-alveolar/palatal (p), velar (v), uvular (u), pharyngeal/glotal (g) 
+	cvox	= voicing, (+)=voiced, (-)=unvoiced
+	
+	laryngeal -> pharyngeal and glotal, mirip, cuma by default kayaknya cuma ada informasi tentang glotal sebagai cplace
+	-->
+	
+	<silence ph="_"/>
+	
+	<!--	vokal monoftong	-->
+	<vowel ph="a" vlng="s" vheight="3" vfront="1" vrnd="-"/>	<!-- open	front		unrounded	-->
+	<vowel ph="i" vlng="s" vheight="1" vfront="1" vrnd="-"/>	<!-- close	front		unrounded	-->
+	<vowel ph="u" vlng="s" vheight="1" vfront="3" vrnd="+"/>	<!-- close	back		rounded		-->
+	<vowel ph="E" vlng="s" vheight="2" vfront="1" vrnd="-"/>	<!-- open-mid	front		unrounded	--> <!--e as in berak	-->
+	<vowel ph="@\" vlng="s" vheight="2" vfront="2" vrnd="-"/>	<!-- close-mid	central		unrounded	--> <!--e as in belajar -->
+	<vowel ph="O" vlng="s" vheight="3" vfront="3" vrnd="+"/>	<!-- open-mid	back		rounded		-->
+	
+	<!--	vokal diftong	-->
+	<vowel ph="aI" vlng="d" vheight="3" vfront="1" vrnd="-"/>	<!-- open	front		unroudned	--> <!-- ai -->
+	<vowel ph="aU" vlng="d" vheight="3" vfront="2" vrnd="+"/>	<!-- open	central		rounded		--> <!-- au --> <!-- rounded type derived from u sound, sound between a and U located around central area -->
+	<vowel ph="OY" vlng="d" vheight="2" vfront="3" vrnd="+"/>	<!-- open-mid	back		rounded		--> <!-- oi -->
+	
+	<!--	konsonan	-->
+	<!-- konsonan plosive	-->
+	<consonant ph="p" ctype="s" cplace="l" cvox="-"/>		<!-- plosive	bilabial	voiceless	-->
+	<consonant ph="b" ctype="s" cplace="l" cvox="+"/> 		<!-- plosive	bilabial	voiced		-->
+	
+	<consonant ph="t" ctype="s" cplace="a" cvox="-"/>		<!-- plosive	alveolar	voiceless	-->
+	<consonant ph="d" ctype="s" cplace="a" cvox="+"/>		<!-- plosive	alveolar	voiced		-->
+	
+	<consonant ph="c" ctype="s" cplace="p" cvox="-"/>		<!-- plosive	palatal		voiceless	-->
+	<consonant ph="J\" ctype="s" cplace="p" cvox="+"/>		<!-- plosive	palatal		voiced		--> <!--j sound-->
+	
+	<consonant ph="k" ctype="s" cplace="v" cvox="-"/>		<!-- plosive	velar		voiceless	-->
+	<consonant ph="g" ctype="s" cplace="v" cvox="+"/>		<!-- plosive	velar		voiced		-->
+	
+	<consonant ph="q" ctype="s" cplace="u" cvox="-"/>		<!-- plosive	uvular		voiceless	-->
+	
+	<consonant ph="?" ctype="s" cplace="g" cvox="-"/>		<!-- plosive	glottal		voiceless	--> <!--used for space between 2 similar vowels. ex: maaf -> ma'af -> ma?af-->
+	
+	<!-- konsonan fricative	-->
+	<consonant ph="f" ctype="f" cplace="b" cvox="-"/>		<!-- fricative	labiodental	voiceless	-->
+	<consonant ph="v" ctype="f" cplace="b" cvox="+"/>		<!-- fricative	labiodental	voiced		-->
+	
+	<consonant ph="s" ctype="f" cplace="a" cvox="-"/>		<!-- fricative	alveolar	voiceless	-->
+	<consonant ph="z" ctype="f" cplace="a" cvox="+"/>		<!-- fricative	alveolar	voiced		-->
+	
+	<consonant ph="x" ctype="f" cplace="v" cvox="-"/>		<!-- fricative	velar		voiceless	--> <!--x/ks sound-->
+	
+	<consonant ph="h" ctype="f" cplace="g" cvox="-"/>		<!-- fricative	pharing/glotal	voiceless	-->
+	
+	<!-- konsonan approximant		-->
+	<consonant ph="j" ctype="a" cplace="p" cvox="+"/>		<!-- aproximant	palatal		voiced		-->
+	
+	<!-- konsonan Lateral approximant	-->
+	<consonant ph="l" ctype="l" cplace="a" cvox="+"/>		<!-- L. approx	alveolar	voiced		-->
+	
+	<!-- konsonan nasal	-->
+	<consonant ph="m" ctype="n" cplace="l" cvox="+"/>		<!-- nasal	bilabial	voiced		-->
+	<consonant ph="n" ctype="n" cplace="a" cvox="+"/>		<!-- nasal	alveolar	voiced		-->
+	
+	<!-- konsonan trill	-->
+	<consonant ph="r" ctype="r" cplace="a" cvox="+"/>		<!-- trill	alveolar	voiced		-->
+	
+	<!-- konsonan flap	-->
+	<consonant ph="w" ctype="r" cplace="l" cvox="+"/>		<!-- flap	labiodental	voiced		-->
+	
+	<!-- konsonan diagraph	-->
+	<consonant ph="S" ctype="f" cplace="p" cvox="-"/>		<!-- frikative	palato-alveolar	voiceless	--> <!--sy sound-->
+	<consonant ph="X\" ctype="f" cplace="g" cvox="-"/>		<!-- fricative	pharyngeal	voiceless	--> <!--kh sound-->
+	
+	<consonant ph="J" ctype="n" cplace="p" cvox="+"/>		<!-- nasal	palatal		voiced		--> <!--ny sound-->
+	<consonant ph="N" ctype="n" cplace="v" cvox="+"/>		<!-- nasal	velar		voiced		--> <!--ng sound-->
+	
+	<!---->
+	<!--	template
+	<vowel ph="" vlng="" vheight="" vfront="" vrnd=""/>
+	<consonant ph="" ctype="" cplace="" cvox=""/>			
+	-->
+</allophones>
