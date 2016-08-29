@@ -1,4 +1,5 @@
-<allophones name="sampa" xml:lang="in" features="vlng vheight vfront vrnd ctype cplace cvox">
+<allophones name="sampa" xml:lang="in"
+		features="vlng vheight vfront vrnd ctype cplace cvox">
 	
 	<!-- 
 	vowels
