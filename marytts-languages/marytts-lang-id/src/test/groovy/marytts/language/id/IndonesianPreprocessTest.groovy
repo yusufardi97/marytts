@@ -27,7 +27,7 @@ class IndonesianPreprocessTest {
     @DataProvider
     public Object[][] docData() {
         def data = []
-        this.getClass().getResourceAsStream('preprocess_testdata.txt')?.splitEachLine(/\s+/){ toks ->
+        this.getClass().getResourceAsStream('preprocess_testdata.txt')?.splitEachLine(/,/){ toks ->
             data.add([toks[0], toks[1]])
         }
         return data
@@ -36,15 +36,16 @@ class IndonesianPreprocessTest {
     @DataProvider
 	private Object[][] cardinalExpandData() {
 		// @formatter:off
-		def testArray = 
-			[ [ "1", "satu" ],
+		def testArray = [
+			[ "1", "satu" ], 
 			[ "2", "dua" ],
 			[ "3", "tiga" ],
 			[ "4", "empat" ],
-			[ "24", "duapuluh empat" ],
-			[ "42", "empatpuluh dua" ],
-                        [ "2000000", "dua juta" ],
-                        [ "3567", "tiga ribu lima ratus enam puluh tujuh" ] ]
+			[ "24", "dua puluh empat" ],
+			[ "42", "empat puluh dua" ],
+            [ "2000000", "dua juta" ],
+            [ "3567", "tiga ribu lima ratus enam puluh tujuh" ]
+        ]
 		// @formatter:on
 		return testArray
 	}

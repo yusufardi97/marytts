@@ -36,14 +36,15 @@ class IndonesianPreprocessTest {
     @DataProvider
 	private Object[][] cardinalExpandData() {
 		// @formatter:off
-		def testArray = [ [ "1", "satu" ],
-						  [ "2", "dua" ],
-						  [ "3", "tiga" ],
-						  [ "4", "empat" ],
-						  [ "24", "duapuluh empat" ],
-						  [ "42", "empatpuluh dua" ],
-                          [ "2000000", "dua juta" ],
-                          [ "3567", "tiga ribu lima ratus enam puluh tujuh" ] ]
+		def testArray = 
+			[ [ "1", "satu" ],
+			[ "2", "dua" ],
+			[ "3", "tiga" ],
+			[ "4", "empat" ],
+			[ "24", "duapuluh empat" ],
+			[ "42", "empatpuluh dua" ],
+                        [ "2000000", "dua juta" ],
+                        [ "3567", "tiga ribu lima ratus enam puluh tujuh" ] ]
 		// @formatter:on
 		return testArray
 	}

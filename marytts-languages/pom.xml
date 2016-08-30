@@ -20,6 +20,7 @@
 		<module>marytts-lang-fr</module>
 		<module>marytts-lang-sv</module>
 		<module>marytts-lang-lb</module>
-		<!-- <module>marytts-lang-in</module> -->
+		<module>marytts-lang-in</module>
+		<module>marytts-lang-id</module>
 	</modules>
 </project>
