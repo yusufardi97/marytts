@@ -19,9 +19,7 @@
  */
 package marytts.language.in;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.testng.AssertJUnit.*;
 
 import java.util.Locale;
 
@@ -29,7 +27,7 @@ import marytts.config.LanguageConfig;
 import marytts.config.MaryConfig;
 import marytts.exceptions.MaryConfigurationException;
 
-import org.junit.Test;
+import org.testng.annotations.*;
 
 /**
  * @author marc

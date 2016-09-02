@@ -1,5 +1,5 @@
 ##########################################################################
-# Copyright (C) 2006 DFKI GmbH.
+# Copyright (C) 2014 DFKI GmbH.
 # All rights reserved. Use is subject to license terms.
 #
 # Permission is hereby granted, free of charge, to use and distribute
@@ -30,7 +30,7 @@
 ##########################################################################
 
 name = in
-in.version = 1.0
+in.version = ${project.version}
 
 locale = in
 
@@ -44,35 +44,29 @@ locale = in
 
 
 # Java classes to use as the modules, as a whitespace-separated list.
-# These have to implement de.dfki.lt.mary.modules.MaryModule.
+# These have to implement marytts.modules.MaryModule.
 # For each input type + output type, only one Module may be listed
 # across all components, or an Exception will be thrown.
 # No particular order is required -- a processing pipeline from input data type
 # to output data type will be computed on-line.
 
 modules.classes.list = \
-	    marytts.language.in.Tokenizer \
-	    marytts.modules.DummyTokens2Words \
-        marytts.modules.JPhonemiser(in.) \
-        marytts.modules.ProsodyGeneric \
-        marytts.modules.MinimalisticPosTagger(in,in)
-        marytts.modules.CARTDurationModeller(in,in.duration.,marytts.features.FeatureProcessorManager(in)) \
-        marytts.modules.CARTF0Modeller(in,in.f0.,marytts.features.FeatureProcessorManager(in))
-
-       
-# marytts.modules.OpenNLPPosTagger(in.pos)
+        marytts.language.in.IndonesianPreprocess \
+        marytts.language.in.IndonesianMinimalisticPosTagger(in) \
+        marytts.language.in.IndonesianPhonemiser
 
 ####################################################################
 ####################### Module settings  ###########################
 ####################################################################
 
-in.allophoneset = jar:/marytts/language/ru/lexicon/allophones.ru.xml
-in.userdict = MARY_BASE/user-dictionaries/userdict-ru.txt
-in.lexicon = jar:/marytts/language/ru/lexicon/ru_lexicon.fst
-in.lettertosound = jar:/marytts/language/ru/lexicon/ru.lts
+# Phonemiser settings
+in.allophoneset = jar:/marytts/language/in/lexicon/allophones.in.xml
+in.lexicon = jar:/marytts/language/in/lexicon/in_lexicon.fst
+in.lettertosound = jar:/marytts/language/in/lexicon/in.lts
+in.userdict = MARY_BASE/user-dictionaries/userdict-in.txt
 
-in.partsofspeech.fst = jar:/marytts/language/in/tagger/in_pos.fst
-in.partsofspeech.punctuation = ,.?!;
-	
-featuremanager.classes.list = \
-	marytts.features.FeatureProcessorManager(in)
+# POS tagger settings
+id.pos.punct.regex = \\$,|\\$\\.
+
+# Feature processor manager
+featuremanager.classes.list = marytts.features.FeatureProcessorManager(id)

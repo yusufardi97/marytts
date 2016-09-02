@@ -12,9 +12,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="TEST" name="Maven: commons-collections:commons-collections:3.2.1" level="project" />
     <orderEntry type="module" module-name="marytts-common" />
     <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.6" level="project" />
-    <orderEntry type="library" name="Maven: commons-io:commons-io:2.0.1" level="project" />
+    <orderEntry type="library" name="Maven: commons-io:commons-io:2.5" level="project" />
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.16" level="project" />
     <orderEntry type="library" name="Maven: com.twmacinta:fast-md5:2.7.1" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-all:2.4.5" level="project" />
@@ -25,7 +26,7 @@
     <orderEntry type="module" module-name="voice-cmu-slt-hsmm" scope="TEST" />
     <orderEntry type="module" module-name="marytts-runtime" scope="TEST" />
     <orderEntry type="library" scope="TEST" name="Maven: com.ibm.icu:icu4j:54.1.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: commons-collections:commons-collections:3.2.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: commons-collections:commons-collections:3.2.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: de.dfki.mary:emotionml-checker-java:1.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: de.dfki.lt.jtok:jtok-core:1.9.3" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.slf4j:slf4j-api:1.6.1" level="project" />
@@ -39,7 +40,7 @@
     <orderEntry type="library" scope="TEST" name="Maven: net.sf.jwordnet:jwnl:1.3.3" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.hsqldb:hsqldb:2.0.0" level="project" />
     <orderEntry type="module" module-name="marytts-lang-en" scope="TEST" />
-    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.11" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.12" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
     <orderEntry type="library" name="Maven: org.incava:java-diff:1.1" level="project" />
   </component>

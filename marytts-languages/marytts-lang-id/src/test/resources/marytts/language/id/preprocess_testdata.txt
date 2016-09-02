@@ -1,9 +1,0 @@
-0,nol
-1,satu
-2,dua
-10,sepuluh
-11,sebelas
-20,dua puluh
-42,empat puluh dua
-24,dua puluh empat
-3567,tiga ribu lima ratus enam puluh tujuh

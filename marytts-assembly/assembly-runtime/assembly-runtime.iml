@@ -11,7 +11,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="marytts-runtime" />
     <orderEntry type="module" module-name="marytts-common" />
-    <orderEntry type="library" name="Maven: commons-io:commons-io:2.0.1" level="project" />
+    <orderEntry type="library" name="Maven: commons-io:commons-io:2.5" level="project" />
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.16" level="project" />
     <orderEntry type="library" name="Maven: com.twmacinta:fast-md5:2.7.1" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-all:2.4.5" level="project" />
@@ -46,6 +46,8 @@
     <orderEntry type="module" module-name="marytts-lang-fr" />
     <orderEntry type="module" module-name="marytts-lang-sv" />
     <orderEntry type="module" module-name="marytts-lang-lb" />
+    <orderEntry type="module" module-name="marytts-lang-in" />
+    <orderEntry type="module" module-name="marytts-lang-id" />
     <orderEntry type="module" module-name="voice-cmu-slt-hsmm" />
   </component>
 </module>
