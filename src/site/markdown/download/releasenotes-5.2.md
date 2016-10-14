@@ -11,6 +11,13 @@ Improvements
 * Better support for Java 8
 * Some migration towards building with Gradle
 
+Voicebuilding
+-------------
+
+* All unit-selection voices have been rebuilt using the new [Gradle plugin](https://github.com/marytts/gradle-marytts-voicebuilding-plugin)
+* All HSMM voices are now hosted on Bintray and can be resolved as dependencies
+* Voices with open data now have open-source voicebuilding repositories hosted on GitHub, which include downloadable distribution packages
+
 Development news
 ----------------
 
@@ -37,6 +44,7 @@ Development news
 Fixed Issues/Bugs
 -----------------
 
+* [#593](https://github.com/marytts/marytts/pull/593): Don't split up multiple punctuation marks in tokenization
 * [#570](https://github.com/marytts/marytts/issues/570): Praat TextGrid output is invalid with boundaries (times are not monotonic)
 * [#564](https://github.com/marytts/marytts/pull/564): add missing TOKENS examples
 * [#555](https://github.com/marytts/marytts/issues/555): HMMModel generates malformed XML duration attributes

@@ -1,15 +1,18 @@
-# Maven
-target/
-
 # Gradle
 .gradle/
+build/
 
 # Eclipse
 .settings/
 .project
 .classpath
 
+<<<<<<< HEAD
 # ideaIU
+=======
+# IDEA
+*.iml
+>>>>>>> 51ff9b0ef3b2d246e17a8136b73f23f585b26b4a
 .idea/
 
 # misc. testing
